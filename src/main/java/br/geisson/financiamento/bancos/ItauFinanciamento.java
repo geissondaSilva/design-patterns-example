@@ -1,6 +1,7 @@
-package br.geisson.financiamento;
+package br.geisson.financiamento.bancos;
 
-import br.geisson.entidades.Pessoa;
+import br.geisson.financiamento.ConsultaFinanciamento;
+import br.geisson.financiamento.FinanceiraFactory;
 
 public class ItauFinanciamento implements FinanceiraFactory {
 

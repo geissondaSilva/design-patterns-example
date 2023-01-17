@@ -1,4 +1,4 @@
-package br.geisson.entidades;
+package br.geisson.financiamento.entidades;
 
 import java.time.LocalDate;
 

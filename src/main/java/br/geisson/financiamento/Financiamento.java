@@ -1,6 +1,9 @@
 package br.geisson.financiamento;
 
 import br.geisson.exceptions.MessageException;
+import br.geisson.financiamento.bancos.BradescoFinanciamento;
+import br.geisson.financiamento.bancos.ItauFinanciamento;
+import br.geisson.financiamento.bancos.SantanderFinanceira;
 
 public class Financiamento {
 

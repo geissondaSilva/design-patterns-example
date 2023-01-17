@@ -1,7 +1,7 @@
 package br.geisson.financiamento;
 
-import br.geisson.entidades.Pessoa;
-import br.geisson.entidades.Veiculo;
+import br.geisson.financiamento.entidades.Pessoa;
+import br.geisson.financiamento.entidades.Veiculo;
 import br.geisson.exceptions.MessageException;
 
 public class ConsultaFinanciamento {
@@ -35,5 +35,15 @@ public class ConsultaFinanciamento {
             throw new MessageException("A valor da entrada não deve ser maior que do veiculo!");
         }
         this.entrada = entrada;
+    }
+
+    public String validate() {
+        if (pessoa == null) {
+            return FinancimanentoMensagem.PESSOA_NAO_INFORMADA;
+        }
+        if (pessoa.getRendaMensal() == null || pessoa.getRendaMensal() <= 0) {
+            return FinancimanentoMensagem.RENDA_NAO_DELARADA;
+        }
+        return null;
     }
 }
