@@ -14,11 +14,7 @@ public class Financiamento {
         } catch (Exception e) {
             return "Erro ao realizar a consulta: " + e.getMessage();
         }
-        boolean preAprovado = financeira.possuiCreditoPreAprovado(pessoa);
-        if (preAprovado) {
-            return "Seu crédito está pré aprovado!";
-        }
-        return "Crédito não aprovado";
+        return financeira.possuiCreditoPreAprovado(pessoa);
     }
 
     public FinanceiraFactory getTipo(FinanceiraTipo tipo) {

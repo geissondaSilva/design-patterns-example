@@ -32,6 +32,17 @@ class ConsultaFinanciamentoTest {
         assertNotEquals(FinancimanentoMensagem.RENDA_NAO_DELARADA, mensagem);
     }
 
+    @Test
+    @DisplayName("Checa o calculo do valor a ser financiado")
+    void validarValorFinanciado() {
+        Pessoa pessoa = getGeisson();
+        Veiculo veiculo = new Veiculo(40000D, 2017, "Ka", "Ford");
+        ConsultaFinanciamento consultaFinanciamento = new ConsultaFinanciamento(pessoa, veiculo);
+        consultaFinanciamento.setEntrada(10000D);
+        assertEquals(30000D, consultaFinanciamento.getValorFinanciado(),
+                "O valor financiado deve ser 40.000 - 10.000 = 30.000");
+    }
+
     private Pessoa getGeisson() {
         return new Pessoa("Geisson", LocalDate.of(1999, Month.SEPTEMBER, 28));
     }

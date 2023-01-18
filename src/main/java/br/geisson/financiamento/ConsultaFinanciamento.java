@@ -6,9 +6,9 @@ import br.geisson.exceptions.MessageException;
 
 public class ConsultaFinanciamento {
 
-    private Pessoa pessoa;
+    private final Pessoa pessoa;
 
-    private Veiculo veiculo;
+    private final Veiculo veiculo;
 
     private Double entrada;
 
@@ -45,5 +45,13 @@ public class ConsultaFinanciamento {
             return FinancimanentoMensagem.RENDA_NAO_DELARADA;
         }
         return null;
+    }
+
+    public Double getValorFinanciado() {
+        return veiculo.getValor() - entrada;
+    }
+
+    public Double getRendaMensal() {
+        return pessoa.getRendaMensal();
     }
 }
