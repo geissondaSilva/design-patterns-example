@@ -12,11 +12,11 @@ import java.time.LocalDate;
 import java.time.Month;
 
 @DisplayName("Valida as informações da consulta de financiamento")
-public class ConsultaFinanciamentoTest {
+class ConsultaFinanciamentoTest {
 
     @Test
     @DisplayName("Veirifica a consistencia para a pessoa que não declarou renda")
-    public void consiteRendaNaoDeclarada() {
+    void consiteRendaNaoDeclarada() {
         ConsultaFinanciamento consultaFinanciamento = new ConsultaFinanciamento(getGeisson(), getGol());
         String mensagem = consultaFinanciamento.validate();
         assertEquals(FinancimanentoMensagem.RENDA_NAO_DELARADA, mensagem);
@@ -24,7 +24,7 @@ public class ConsultaFinanciamentoTest {
 
     @Test
     @DisplayName("Verifica se a pessoa esta com a renda válida")
-    public void consisteRendaValida() {
+    void consisteRendaValida() {
         Pessoa pessoa = getGeisson();
         pessoa.setRendaMensal(1000D);
         ConsultaFinanciamento consultaFinanciamento = new ConsultaFinanciamento(pessoa, getGol());
