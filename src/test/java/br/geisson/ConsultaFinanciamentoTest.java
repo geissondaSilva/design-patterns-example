@@ -4,6 +4,7 @@ import br.geisson.financiamento.entidades.Pessoa;
 import br.geisson.financiamento.entidades.Veiculo;
 import br.geisson.financiamento.ConsultaFinanciamento;
 import br.geisson.financiamento.FinancimanentoMensagem;
+import br.geisson.financiamento.entidades.VeiculoBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +14,12 @@ import java.time.Month;
 
 @DisplayName("Valida as informações da consulta de financiamento")
 class ConsultaFinanciamentoTest {
+
+    final VeiculoBuilder veiculoBuilder;
+
+    public ConsultaFinanciamentoTest() {
+        this.veiculoBuilder = new VeiculoBuilder();
+    }
 
     @Test
     @DisplayName("Veirifica a consistencia para a pessoa que não declarou renda")
@@ -36,7 +43,7 @@ class ConsultaFinanciamentoTest {
     @DisplayName("Checa o calculo do valor a ser financiado")
     void validarValorFinanciado() {
         Pessoa pessoa = getGeisson();
-        Veiculo veiculo = new Veiculo(40000D, 2017, "Ka", "Ford");
+        Veiculo veiculo = veiculoBuilder.hatch(40000D, 2017, "Ka", "Ford");
         ConsultaFinanciamento consultaFinanciamento = new ConsultaFinanciamento(pessoa, veiculo);
         consultaFinanciamento.setEntrada(10000D);
         assertEquals(30000D, consultaFinanciamento.getValorFinanciado(),
@@ -48,6 +55,6 @@ class ConsultaFinanciamentoTest {
     }
 
     private Veiculo getGol() {
-        return new Veiculo(30.000D, 2012, "Gol", "Wolksvagem");
+        return veiculoBuilder.hatch(30.000D, 2012, "GOL", "Woksvagem");
     }
 }
