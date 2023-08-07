@@ -23,6 +23,6 @@ public class Financiamento {
             case BRADESCO -> new BradescoFinanciamento();
             case SANTANDER -> new SantanderFinanceira();
         }
-        throw new MessageException("FInanceira não disponível!");
+        throw new MessageException("Financeira não disponível!");
     }
 }

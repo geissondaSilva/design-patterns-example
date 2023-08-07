@@ -6,6 +6,7 @@ Este projeto tem como objeto explçicar de uma forma prática no mundo real a ut
 
  - [Factory Method Patterns](docs/FACTORY_METHOD_PATTERN.md)
  - [Builder](docs/BUILDER.md)
+ - [Sigleton](docs/SINGLETON.md)
 
 ## Referências bibliograficas
 
